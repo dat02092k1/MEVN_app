@@ -1,5 +1,6 @@
 var userService = require('./userService');     
-  
+var User = require('./userModel');     
+
 
 
 var getDataControllerfn = async (req, res) => {
@@ -69,4 +70,24 @@ var deleteUserControllerFn = async (req, res) => {
     }
 }
 
-module.exports = { getDataControllerfn, createUserControllerFn, updateUserControllerFn, deleteUserControllerFn } ; 
+var loginController = async (req, res) => {
+    try {
+        const { address, password } = req.body;   
+        console.log(address);
+        const student = await User.find({ address: address, password: password });
+        console.log(student);
+        if (!student) {
+            return res.status(404).json({
+                message: "Không tìm thấy sinh viên.",
+              });
+        }
+
+        res.status(200).json(student);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
+module.exports = { getDataControllerfn, createUserControllerFn, 
+    updateUserControllerFn, deleteUserControllerFn,
+    loginController } ; 

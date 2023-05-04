@@ -1,14 +1,17 @@
 var userModel = require('./userModel'); 
 
-module.exports.getDataFromDBService = () => {
-    return new Promise((resolve, reject) =>
-    {
-        userModel.find({}, function returnData(err, data) {
-            if (err) reject(false);
-            else resolve(data); 
-        })
+module.exports.getDataFromDBService = async () => {
+    try {
+      const users = await userModel.find().sort({ start_date: -1 });
+
+      const dates = users.map((element) => {
+        return element.start_date;
+    })
+        
+      return dates; 
+    } catch (error) {
+        throw error;
     }
-    )
 }
 
 module.exports.createUserDBService = (userDetails) => {
@@ -20,7 +23,8 @@ module.exports.createUserDBService = (userDetails) => {
  
         userModelData.name = userDetails.name;
         userModelData.address = userDetails.address;
-        userModelData.phone = userDetails.phone;
+        userModelData.password = userDetails.password;
+        userModelData.role = userDetails.role;
 
         userModelData.save(function resultHandle(error, result) {
  

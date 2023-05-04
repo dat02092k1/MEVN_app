@@ -10,4 +10,7 @@ router.route('/user/update/:id').patch(userController.updateUserControllerFn);
 
 router.route('/user/remove/:id').delete(userController.deleteUserControllerFn);
 
+router.route('/user/login').post(userController.loginController);
+
+
 module.exports = router;       
