@@ -110,16 +110,16 @@ cron.schedule('*/10 * * * *', async () => {
 
 cloudinary.config({
     cloud_name: "dpnjutbws",
-    api_key: "838171156289576",
-    api_secret: "Jp7EiCngYu9TChznwt0ZPfjNKUI"
+    api_key: process.env.API_KEY_CLOUDINARY,
+    api_secret: process.env.API_SECRET
   });
 
 var mongoose = require('mongoose');
 const cors = require('cors');  
 const { urlencoded } = require('express');
 
-// pass: Fk95NRiMgSZT33ev ngodat02092001
-const uri = "mongodb+srv://ngodat02092001:Fk95NRiMgSZT33ev@mevn-app.hvbfkwy.mongodb.net/?retryWrites=true&w=majority";
+
+const uri = process.env.MONGODBURL; 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true } , function checkDb(err) {
     if (err) {
         console.log('err')
