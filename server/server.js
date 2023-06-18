@@ -200,25 +200,6 @@ server.post('/api/import', upload.single('file'), validateFieldsMiddleware, asyn
   try {
     const data = req.data;
   console.log('api flag')
- 
-   // Kiểm tra xem email và tên người dùng đã tồn tại trong cơ sở dữ liệu hay chưa
-  //  const existingUsers = await Promise.all([
-  //   userModel.find({ address: { $in: data.map(item => item.address) } }, { address: 1 }),
-  //   userModel.find({ name: { $in: data.map(item => item.name) } }, { name: 1 })
-  // ]);
-
-  // const duplicateEmails = data.filter(item => existingUsers[0].some(user => user.address === item.address));
-  // const duplicateNames = data.filter(item => existingUsers[1].some(user => user.name === item.name));
-
-  // if (duplicateEmails.length > 0 || duplicateNames.length > 0) {
-  //   const errors = {
-  //     duplicateEmails,
-  //     duplicateNames
-  //   };
-  //   res.status(400).json({ errors });
-  //   return;
-  // }
-
      
     // Thêm các user mới vào database
     const newUsers = await userModel.insertMany(data);
@@ -656,7 +637,7 @@ function generatePassword() {
   return password;
 }
 
-server.listen(2000, function check(err) {
+server.listen(2000, "0.0.0.0", function check(err) {
     if (err) console.log('err');
     else console.log('started');
 });   
