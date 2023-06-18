@@ -10,7 +10,6 @@ import Home from "./components/Home.vue";
 import Form from "./components/Form.vue";
 import Task from "./components/task/Task.vue";
 import TaskList from "./components/task/TaskList.vue";
-import ReserPassword from "./components/ReserPassword.vue";
 import ErrorPage from "./components/ErrorPage.vue";
 
 const routes = [
@@ -45,10 +44,6 @@ const routes = [
   {
     path: "/task/list",
     component: TaskList,
-  }, 
-  {
-    path: "/passwordReset/:id",
-    component: ReserPassword,
   },
   { path: '/:pathMatch(.*)*', component: ErrorPage }, // wildcard route to catch any invalid routes  
 ];
