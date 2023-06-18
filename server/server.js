@@ -636,8 +636,9 @@ function generatePassword() {
   }
   return password;
 }
+const PORT = process.env.PORT || 4000;
 
-server.listen(2000, "0.0.0.0", function check(err) {
+server.listen(PORT, "0.0.0.0", function check(err) {
     if (err) console.log('err');
     else console.log('started');
 });   
