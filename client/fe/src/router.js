@@ -26,7 +26,7 @@ const routes = [
   { path: "/post", component: ShowPost, meta: { requiresAuth: true } },
   { path: "/emp", component: ListEmp },
   { path: "/post/lists", component: PostList, meta: { requiresAuth: true } },
-  { path: "/login", component: Login, name: "login" },
+  { path: "/", component: Login, name: "login" },
   {
     path: "/file",
     component: FileDoc,
