@@ -32,7 +32,7 @@
   
       async function fetchPosts(page) {
         try {
-          const response = await axios.get(`http://localhost:2000/api/posts-pagination?page=${page}`); 
+          const response = await axios.get(`https://mevnapp-server.up.railway.app/api/posts-pagination?page=${page}`); 
           console.log(response)
           state.currentPage = page;
           state.totalPages = response.data.totalPages;

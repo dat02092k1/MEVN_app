@@ -30,7 +30,7 @@
       async login() {
         try {
             console.log(this.username);
-          const response = await axios.post('http://localhost:2000/user/login', {
+          const response = await axios.post('https://mevnapp-server.up.railway.app/user/login', {
             address: this.username,
             password: this.password,
           });

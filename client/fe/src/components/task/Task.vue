@@ -53,7 +53,7 @@ import axios from 'axios';
       },
       async submitForm() {
         try {
-          const response = await fetch('http://localhost:2000/user/assign-task', {
+          const response = await fetch('https://mevnapp-server.up.railway.app/user/assign-task', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({

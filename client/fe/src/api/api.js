@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const axiosIns = axios.create({
-    baseURL: 'http://localhost:2000/api'
+    baseURL: 'https://mevnapp-server.up.railway.app/api'
 });
 
 

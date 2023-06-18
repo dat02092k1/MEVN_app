@@ -21,7 +21,7 @@
       }
     },
     async mounted() {
-      const res = await axios.get('http://localhost:2000/user/view-task');
+      const res = await axios.get('https://mevnapp-server.up.railway.app/user/view-task');
       this.tasks = res.data.tasks;
   
       this.tasks.forEach((task) => {

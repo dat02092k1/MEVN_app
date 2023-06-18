@@ -27,7 +27,7 @@
         const formData = new FormData();
         formData.append('file', this.selectedFile);
   
-        axios.post('http://localhost:2000/api/import', formData, {
+        axios.post('https://mevnapp-server.up.railway.app/api/import', formData, {
           headers: {
             'Content-Type': 'multipart/form-data'
           }

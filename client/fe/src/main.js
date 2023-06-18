@@ -5,7 +5,7 @@ import router from './router'
 import { createPinia } from 'pinia';
 
 import io from 'socket.io-client';
-const socket = io.connect('http://localhost:5000');
+const socket = io.connect('https://mevnappsocket-production.up.railway.app');
 
 const app = createApp(App);
 app.use(router)

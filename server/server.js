@@ -184,9 +184,7 @@ const validateFieldsMiddleware = (req, res, next) => {
 const formatDateExcel = (dateNumber) => {
   return new Date(1900, 0, dateNumber);
 }
-server.use(cors({
-    origin: 'http://127.0.0.1:5173'
-}));
+server.use(cors());
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: false }));
@@ -638,7 +636,7 @@ function generatePassword() {
 }
 const PORT = process.env.PORT || 4000;
 
-server.listen(PORT, "0.0.0.0", function check(err) {
+server.listen(process.env.PORT, "0.0.0.0", function check(err) {
     if (err) console.log('err');
     else console.log('started');
 });   

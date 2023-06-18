@@ -52,7 +52,7 @@
             password: this.password
           });
           
-          const response = await axios.post('http://localhost:2000/reset', {
+          const response = await axios.post('https://mevnapp-server.up.railway.app/reset', {
             token: this.token,
             password: this.password
           });
